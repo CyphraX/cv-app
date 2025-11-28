@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-frontend
+  namespace: cv-app
+  labels:
+    app: cv-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cv-frontend
+  template:
+    metadata:
+      labels:
+        app: cv-frontend
+    spec:
+      containers:
+        - name: cv-frontend
+          image: ghcr.io/cyphrax/cv-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      imagePullSecrets:
+        - name: ghcr-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cv-frontend-service
+  namespace: cv-app
+spec:
+  selector:
+    app: cv-frontend
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP

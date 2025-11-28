@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-backend
+  namespace: cv-app
+  labels:
+    app: cv-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cv-backend
+  template:
+    metadata:
+      labels:
+        app: cv-backend
+    spec:
+      containers:
+        - name: cv-backend
+          image: ghcr.io/cyphrax/cv-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+      imagePullSecrets:
+        - name: ghcr-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cv-backend-service
+  namespace: cv-app
+spec:
+  selector:
+    app: cv-backend
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP
