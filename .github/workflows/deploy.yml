@@ -19,22 +19,11 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          version: "v1.29.0"
-
-      - name: Configure kubeconfig
-        run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBECONFIG }}" | base64 -d > ~/.kube/config
-          chmod 600 ~/.kube/config
 
       - name: Determine what to deploy
         id: deploy-target
@@ -52,18 +41,18 @@ jobs:
         run: |
           kubectl rollout restart deployment/cv-backend -n cv-app
           kubectl rollout status deployment/cv-backend -n cv-app --timeout=180s
-          echo "### ✅ Backend Deployed" >> $GITHUB_STEP_SUMMARY
+          echo "###  Backend Deployed" >> $GITHUB_STEP_SUMMARY
 
       - name: Deploy Frontend
         if: steps.deploy-target.outputs.target == 'frontend' || steps.deploy-target.outputs.target == 'all'
         run: |
           kubectl rollout restart deployment/cv-frontend -n cv-app
           kubectl rollout status deployment/cv-frontend -n cv-app --timeout=120s
-          echo "### ✅ Frontend Deployed" >> $GITHUB_STEP_SUMMARY
+          echo "###  Frontend Deployed" >> $GITHUB_STEP_SUMMARY
 
       - name: Verify Deployment
         run: |
-          echo "### 📊 Deployment Status" >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "###  Deployment Status" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
           kubectl get pods -n cv-app >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
