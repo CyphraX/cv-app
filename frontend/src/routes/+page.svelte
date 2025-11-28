@@ -60,7 +60,7 @@
         email: "philipp.saal@proton.me",
         phone: "+49 176 20690117",
         github: "CyphraX",
-        profile: "Java Backend Developer mit 4+ Jahren Erfahrung in der Entwicklung skalierbarer Plattform-Architekturen für Kommunalsoftware.",
+        profile: "Java Backend Developer mit 4+ Jahren Erfahrung in der Entwicklung skalierbarer Plattform-Architekturen fï¿½r Kommunalsoftware.",
         skills: {
           coreExpertise: ["Java (11-21)", "REST API Design", "Elasticsearch", "MSSQL / Oracle", "Platform Architecture"],
           solidKnowledge: ["OSGi", "Hazelcast", "Docker", "ADRs & arc42", "On-Premise Deployment"],
@@ -69,9 +69,9 @@
         experience: [{
           company: "HSH-Berlin",
           role: "Java Backend Developer",
-          period: "März 2022 - heute",
+          period: "Mï¿½rz 2022 - heute",
           type: "Kommunalsoftware",
-          highlights: ["Plattform-Entwicklung für 20-40 Fachverfahren"]
+          highlights: ["Plattform-Entwicklung fï¿½r 20-40 Fachverfahren"]
         }],
         education: [{
           institution: "HTW Berlin",
@@ -94,6 +94,7 @@
 <svelte:head>
   <title>CV - Philipp Saal | Java Backend Developer</title>
   <meta name="description" content="Java Backend Developer mit 4+ Jahren Erfahrung in Plattform-Architekturen" />
+  <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <main>
@@ -196,7 +197,12 @@
     </section>
 
     <footer>
-      <p>Built with SvelteKit, Kotlin & Kubernetes  Hosted on Raspberry Pi</p>
+      <p>Built with SvelteKit, Kotlin & Kubernetes â€¢ Hosted on Raspberry Pi</p>
+      <div class="legal-links">
+        <a href="/impressum">Impressum</a>
+        <span>|</span>
+        <a href="/datenschutz">Datenschutz</a>
+      </div>
     </footer>
   {/if}
 
@@ -484,5 +490,26 @@
     main {
       padding: 1rem;
     }
+  }
+
+  .legal-links {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .legal-links a {
+    color: #666;
+    text-decoration: none;
+  }
+
+  .legal-links a:hover {
+    color: #00d9ff;
+  }
+
+  .legal-links span {
+    color: #444;
   }
 </style>
