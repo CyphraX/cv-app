@@ -114,7 +114,7 @@ class CvController {
                 period = "Abgeschlossen",
                 note = null,
                 focus = null,
-                thesis = "Entwicklung eines benutzerfreundlichen Werkzeugs zur Erstellung von individuellen PDF-Vorlagen für die Komponente „Auswertungen" im Produkt VOIS der HSH"
+                thesis = "Entwicklung eines benutzerfreundlichen Werkzeugs zur Erstellung von individuellen PDF-Vorlagen für die Komponente Auswertungen im Produkt VOIS der HSH"
             )
         ),
         languages = listOf(
