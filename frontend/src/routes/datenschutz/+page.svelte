@@ -27,7 +27,7 @@
         >Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong
       ><br />
       Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber:
-      Philipp Saal, An den Schäferpfühlen 113, 16321 Bernau bei Berlin, E-Mail: philipp.saal@proton.me
+      Philipp Saal, Bernau bei Berlin, E-Mail: philipp.saal@proton.me
     </p>
     <p>
       <strong>Wie erfassen wir Ihre Daten?</strong><br />
@@ -77,8 +77,7 @@
       Verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br
       /><br />
       Philipp Saal<br />
-      An den Schäferpfühlen 113<br />
-      16321 Bernau bei Berlin<br />
+      Bernau bei Berlin<br />
       E-Mail: philipp.saal@proton.me
     </p>
   </section>
