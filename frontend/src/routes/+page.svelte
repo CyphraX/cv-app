@@ -33,7 +33,6 @@
     title: string;
     location: string;
     email: string;
-    phone: string;
     github: string;
     profile: string;
     skills: SkillCategories;
@@ -58,7 +57,6 @@
         title: "Java Backend Developer",
         location: "Bernau bei Berlin",
         email: "philipp.saal@proton.me",
-        phone: "+49 176 20690117",
         github: "CyphraX",
         profile:
           "Java Backend Developer mit 4+ Jahren Erfahrung in der Entwicklung skalierbarer Plattform-Architekturen f�r Kommunalsoftware.",

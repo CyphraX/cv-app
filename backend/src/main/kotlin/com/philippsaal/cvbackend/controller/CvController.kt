@@ -17,7 +17,6 @@ class CvController {
         title = "Java Backend Developer",
         location = "Bernau bei Berlin",
         email = "philipp.saal@proton.me",
-        phone = "+49 176 20690117",
         github = "CyphraX",
         profile = "Java Backend Developer mit 4+ Jahren Erfahrung in der Entwicklung skalierbarer Plattform-Architekturen für Kommunalsoftware. Spezialisiert auf API-Design, Infrastruktur-Integration (Elasticsearch, Hazelcast) und technische Modernisierungsprojekte. Starke Affinität für Software-Architektur mit Fokus auf eigenverantwortliche technische Entscheidungsfindung und Dokumentation (ADRs, arc42).",
         skills = SkillCategories(
@@ -106,7 +105,6 @@ data class CvData(
     val title: String,
     val location: String,
     val email: String,
-    val phone: String,
     val github: String,
     val profile: String,
     val skills: SkillCategories,
