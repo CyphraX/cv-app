@@ -60,30 +60,53 @@
         email: "philipp.saal@proton.me",
         phone: "+49 176 20690117",
         github: "CyphraX",
-        profile: "Java Backend Developer mit 4+ Jahren Erfahrung in der Entwicklung skalierbarer Plattform-Architekturen f�r Kommunalsoftware.",
+        profile:
+          "Java Backend Developer mit 4+ Jahren Erfahrung in der Entwicklung skalierbarer Plattform-Architekturen f�r Kommunalsoftware.",
         skills: {
-          coreExpertise: ["Java (11-21)", "REST API Design", "Elasticsearch", "MSSQL / Oracle", "Platform Architecture"],
-          solidKnowledge: ["OSGi", "Hazelcast", "Docker", "ADRs & arc42", "On-Premise Deployment"],
-          exploration: ["Spring Boot", "Kotlin", "Kubernetes", "Rust", "SvelteKit"]
+          coreExpertise: [
+            "Java (11-21)",
+            "REST API Design",
+            "Elasticsearch",
+            "MSSQL / Oracle",
+            "Platform Architecture",
+          ],
+          solidKnowledge: [
+            "OSGi",
+            "Hazelcast",
+            "Docker",
+            "ADRs & arc42",
+            "On-Premise Deployment",
+          ],
+          exploration: [
+            "Spring Boot",
+            "Kotlin",
+            "Kubernetes",
+            "Rust",
+            "SvelteKit",
+          ],
         },
-        experience: [{
-          company: "HSH-Berlin",
-          role: "Java Backend Developer",
-          period: "M�rz 2022 - heute",
-          type: "Kommunalsoftware",
-          highlights: ["Plattform-Entwicklung f�r 20-40 Fachverfahren"]
-        }],
-        education: [{
-          institution: "HTW Berlin",
-          degree: "Bachelor of Science",
-          field: "Angewandte Informatik",
-          period: "Abgeschlossen",
-          note: null
-        }],
+        experience: [
+          {
+            company: "HSH-Berlin",
+            role: "Java Backend Developer",
+            period: "M�rz 2022 - heute",
+            type: "Kommunalsoftware",
+            highlights: ["Plattform-Entwicklung f�r 20-40 Fachverfahren"],
+          },
+        ],
+        education: [
+          {
+            institution: "HTW Berlin",
+            degree: "Bachelor of Science",
+            field: "Angewandte Informatik",
+            period: "Abgeschlossen",
+            note: null,
+          },
+        ],
         languages: [
           { language: "Deutsch", level: "Muttersprache" },
-          { language: "Englisch", level: "Gut" }
-        ]
+          { language: "Englisch", level: "Gut" },
+        ],
       };
     } finally {
       loading = false;
@@ -93,7 +116,10 @@
 
 <svelte:head>
   <title>CV - Philipp Saal | Java Backend Developer</title>
-  <meta name="description" content="Java Backend Developer mit 4+ Jahren Erfahrung in Plattform-Architekturen" />
+  <meta
+    name="description"
+    content="Java Backend Developer mit 4+ Jahren Erfahrung in Plattform-Architekturen"
+  />
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
@@ -110,7 +136,11 @@
       <div class="contact-info">
         <span> {cvData.location}</span>
         <span> <a href="mailto:{cvData.email}">{cvData.email}</a></span>
-        <span> <a href="https://github.com/{cvData.github}" target="_blank">github.com/{cvData.github}</a></span>
+        <span>
+          <a href="https://github.com/{cvData.github}" target="_blank"
+            >github.com/{cvData.github}</a
+          ></span
+        >
       </div>
     </header>
 
@@ -121,9 +151,9 @@
 
     <section class="skills">
       <h2>Technische Kompetenzen</h2>
-      
+
       <div class="skill-category">
-        <h3> Core Expertise</h3>
+        <h3>Core Expertise</h3>
         <div class="skill-tags">
           {#each cvData.skills.coreExpertise as skill}
             <span class="skill-tag core">{skill}</span>
@@ -132,7 +162,7 @@
       </div>
 
       <div class="skill-category">
-        <h3> Solid Knowledge</h3>
+        <h3>Solid Knowledge</h3>
         <div class="skill-tags">
           {#each cvData.skills.solidKnowledge as skill}
             <span class="skill-tag solid">{skill}</span>
@@ -141,7 +171,7 @@
       </div>
 
       <div class="skill-category">
-        <h3> Exploration & Learning</h3>
+        <h3>Exploration & Learning</h3>
         <div class="skill-tags">
           {#each cvData.skills.exploration as skill}
             <span class="skill-tag explore">{skill}</span>
@@ -158,7 +188,9 @@
             <h3>{exp.role}</h3>
             <span class="period">{exp.period}</span>
           </div>
-          <p class="company">{exp.company} <span class="type"> {exp.type}</span></p>
+          <p class="company">
+            {exp.company} <span class="type"> {exp.type}</span>
+          </p>
           <ul class="highlights">
             {#each exp.highlights as highlight}
               <li>{highlight}</li>
@@ -207,7 +239,9 @@
   {/if}
 
   {#if error}
-    <p class="error-note"> API nicht erreichbar - Fallback-Daten werden angezeigt</p>
+    <p class="error-note">
+      API nicht erreichbar - Fallback-Daten werden angezeigt
+    </p>
   {/if}
 </main>
 
@@ -217,7 +251,13 @@
   }
 
   :global(body) {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
     background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
     color: #e4e4e4;
     margin: 0;
@@ -321,7 +361,9 @@
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 500;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
   }
 
   .skill-tag:hover {
@@ -330,7 +372,11 @@
   }
 
   .skill-tag.core {
-    background: linear-gradient(135deg, rgba(0, 217, 255, 0.25), rgba(0, 255, 136, 0.25));
+    background: linear-gradient(
+      135deg,
+      rgba(0, 217, 255, 0.25),
+      rgba(0, 255, 136, 0.25)
+    );
     border: 1px solid rgba(0, 217, 255, 0.5);
     color: #00ff88;
   }
@@ -347,17 +393,20 @@
     color: #aaa;
   }
 
-  .experience-item, .education-item {
+  .experience-item,
+  .education-item {
     border-left: 3px solid #00ff88;
     padding-left: 1.5rem;
     margin-bottom: 2rem;
   }
 
-  .experience-item:last-child, .education-item:last-child {
+  .experience-item:last-child,
+  .education-item:last-child {
     margin-bottom: 0;
   }
 
-  .exp-header, .edu-header {
+  .exp-header,
+  .edu-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -365,7 +414,8 @@
     gap: 0.5rem;
   }
 
-  .experience-item h3, .education-item h3 {
+  .experience-item h3,
+  .education-item h3 {
     margin: 0;
     color: #fff;
     font-size: 1.2rem;
@@ -377,7 +427,8 @@
     white-space: nowrap;
   }
 
-  .company, .institution {
+  .company,
+  .institution {
     color: #888;
     margin: 0.25rem 0 0.75rem 0;
     font-size: 1rem;
@@ -456,7 +507,9 @@
   }
 
   @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .error-note {
@@ -479,7 +532,8 @@
       gap: 0.75rem;
     }
 
-    .exp-header, .edu-header {
+    .exp-header,
+    .edu-header {
       flex-direction: column;
     }
 
